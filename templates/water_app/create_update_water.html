@@ -1,0 +1,11 @@
+{% extends 'water_app/water.html' %}
+
+{% block content %}
+  <h1>{% if request.resolver_match.url_name == 'water_create' %}{% else %}{% endif %} </h1>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+      </form>
+  <a href="{% url 'water_list' %}">Back to list</a>
+{% endblock %}

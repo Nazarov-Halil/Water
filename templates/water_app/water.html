@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Доставка воды</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #007BFF;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Доставка воды</h1>
+    <ul>
+        {% for water in water_delivery %}
+            <li>
+                <strong>Локация:</strong> {{ water.location }}<br>
+                <strong>Дата:</strong> {{ water.date }}<br>
+                <strong>Литр:</strong> {{ water.water_Liter }}<br>
+                <strong>Каличество:</strong> {{ water.quantity }}<br>
+                <a href="{% url 'water_update' water.id %}"><button>Обновить</button></a>
+            </li>
+        {% endfor %}
+    </ul>
+{% block content %}
+{% endblock content %}
+</body>
+</html>
