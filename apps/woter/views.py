@@ -1,6 +1,6 @@
 from apps.woter.forms import WaterForm
 from apps.woter.models import Water
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 
 class WaterListView(ListView):
@@ -28,3 +28,8 @@ class WaterUpdateView(UpdateView):
         post = form.save(commit=False)
         post.save()
         return super().form_valid(form)
+
+class WaterDeleteView(DeleteView):
+    model = Water
+    template_name = 'water_app/delete.html'
+    success_url = '/'

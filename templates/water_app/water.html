@@ -39,6 +39,8 @@
                 <strong>Литр:</strong> {{ water.water_Liter }}<br>
                 <strong>Каличество:</strong> {{ water.quantity }}<br>
                 <a href="{% url 'water_update' water.id %}"><button>Обновить</button></a>
+                <a href="{% url 'water_delete' water.id %}"><button>Удалить</button></a>
+
             </li>
         {% endfor %}
         <a href="{% url 'water_create' %}"><button>создать</button></a>
